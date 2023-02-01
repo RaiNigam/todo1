@@ -1,24 +1,3 @@
-<?php
-include('db.php');
-if(isset($_POST['submit'])) {
-    $task = $_POST['task'];
-   
-    $date = $_POST['date'];
-
-    $insertQuery = "INSERT INTO tbl_task(task,date) 
-    VALUES ('$task','$date')";
-    $result = $conn->query($insertQuery);
-
-    if($conn->insert_id){
-        // echo "Page created successfully";
-    }else{
-        echo $conn->error;
-    }  
-}
-$sql = "SELECT id, task, date FROM tbl_task";
-$result = $conn->query($sql);
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +10,7 @@ $result = $conn->query($sql);
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" 
            rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">   
+    <link rel="stylesheet" href="css/styling.css">   
      
     <title>Todo</title>
 </head>
@@ -63,7 +42,7 @@ $result = $conn->query($sql);
         <div class="container tasks">
             <h2 class="appTitle">TODO Application</h2>
             <table class="table table-bordered table-hover">
-        <form action="resubmit.php" method="post">
+        <form action="create.php" method="post">
           <div class="d-flex">
             <div class="p-2 text-lg-center"><label for="exampleInputEmail1" >Tasks</label>
               <input type="text" class="form-control activity" name="task" placeholder="Enter Your Task Here" 
@@ -87,22 +66,31 @@ $result = $conn->query($sql);
       </thead>
       <tbody>
       <?php
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
+            	require 'db.php';
+              $query = $conn->query("SELECT * FROM `tbl_task` ORDER BY `id` ASC");
+              $count = 1;
+              while($fetch = $query->fetch_array()){
             ?>
-                <tr>
-                    <td><?php echo $row['id']?></td>
-                    <td><?php echo $row['task'] ?></td>
-                    <td class="date"><?php echo $row['date'] ?></td>
-
-                    <td></td>
-                    <td> <a href="?page=pages&action=edit&id=<?php echo $row['id'] ?>"><i class="fa-solid fa-pen-to-square edited" title="edit"></i></a>
-                        <a href="?page=pages&action=delete&id=<?php echo $row['id']?>" onclick="return confirm('Are you sure?')" ><i class="fa-solid fa-trash-can deleted" title="delete"></i></a></td>      
-                </tr>
-            <?php
-                }
-            }
-            ?>
+            <tr>
+              <td><?php echo $count++?></td>
+              <td><?php echo $fetch['task']?></td>
+              <td><?php echo $fetch['date']?></td>
+              <td><?php echo $fetch['status']?></td>
+              <td>
+              <center>
+							<?php
+								if($fetch['status'] != "Done"){
+									echo 
+									'<a href="update_task.php?id='.$fetch['id'].'" ><i class="fa-solid fa-pen-to-square edited" title="edit"></i></a>';
+								}
+							?>
+							 <a href="delete.php?id=<?php echo $fetch['id']?>" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash-can deleted" title="delete"></i></a>
+						</center>
+					</td>
+				</tr>
+				<?php
+					}
+				?>
       </tbody>
               </table>
         </div>
@@ -111,5 +99,5 @@ $result = $conn->query($sql);
 
 </body>
 
-<script src="js/bootstrap.bundle.min.js"></script>
+<!-- <script src="js/bootstrap.bundle.min.js"></script> -->
 </html>

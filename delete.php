@@ -1,8 +1,9 @@
-<?php
+ <?php
 include("db.php");
-$id = $_GET['id'];
+if($_GET['id']){
+    $id = $_GET['id'];
 
-$deleteQuery = "DELETE FROM tbl_task WHERE id = $id";
-$conn->query($deleteQuery);
-header('Location:index.php');
+    $conn->query("DELETE FROM `tbl_task` WHERE `id` = $id") or die(mysqli_errno($conn));
+    header("location: index.php");
+}	
 ?>

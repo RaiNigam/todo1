@@ -1,0 +1,87 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden; 
+    margin:0;
+    padding:0;
+}
+#home:hover{
+    color:#ffcc66;
+}
+.navbar{
+    background-color: #1e1e1e;
+    position:fixed;
+    width:100%;
+    top:0; 
+    z-index: 11; 
+}
+.table_header{
+    z-index: 1;
+}
+#home{
+    color:white;
+    font-weight: bold;
+}
+.navbar a img{
+    border-radius: 10px;
+    border:2px solid #ffcc66;
+}
+.logOutBtn{
+    color:white;
+    border:none;
+    font-weight: bold;
+}
+.logOutBtn:hover{
+    background-color: #ffcc66;
+    color:black;
+}
+    .content{
+    /* margin-left:70px; */
+    /* margin-right:-100px; */
+    background-color: #ffcc66;
+    height:1400px;
+    /* text-align: center; */
+    /* color:white; */
+    padding-top:100px;
+}
+.welcomeMsg{
+    text-align: center;
+}
+.appTitle{
+    text-decoration:underline ;
+    font-weight: bolder;
+    text-align: center;
+}
+.tasks{
+    border:5px solid black;
+}
+.inputDate{
+    /* width:200px; */
+}
+.activity{
+    width:1000px;
+}
+.edited,.deleted{
+    margin-right:10px;
+    font-size: 20px;
+    cursor: pointer;
+    color:black;   
+}
+.edited:hover{
+    color:aqua;
+}
+.deleted:hover{
+    color:red;
+}
+
+.status{
+    width:100px;
+    height:40px;
+    margin-top: -5px;
+}
+.date{
+    text-align: center;
+}
+.content{
+    padding: 185px 150px;
+    border: 1px solid black;
+}
