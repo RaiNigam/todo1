@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+ini_set('display_errors', 1);
+
+if(!isset($_SESSION['email'])){
+    header('Location:login.php');
+}
+
+include('db.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,13 +42,19 @@
             </li>
           
           </ul>
-            <button class="btn logOutBtn btn-outline-success my-2 my-sm-0" 
-             type="submit">Logout</button>
+            <a href="./logout.php"><button class="btn logOutBtn btn-outline-success my-2 my-sm-0" 
+             >Logout</button></a>
           
         </div>
       </nav>
       <div class="container-fluid content">
-        <h1 class="welcomeMsg">Hi Username, Welcome to our site.</h1>
+        <h1 class="welcomeMsg">Hi <?php
+        require 'db.php';
+          
+        $query = $conn->query("SELECT username FROM `tbl_user`");
+        // $count = 1;
+        while($fetch = $query->fetch_array()){
+        echo $fetch['username'];}?>, Welcome to our site.</h1>
        
         <div class="container tasks">
             <h2 class="appTitle">TODO Application</h2>
@@ -75,10 +92,13 @@
               <td><?php echo $count++?></td>
               <td><?php echo $fetch['task']?></td>
               <td><?php echo $fetch['date']?></td>
-              <td><?php echo $fetch['status']?></td>
+              <td> <a href="" style="padding:10px;cursor:pointer;background-color:green;text-decoration:none;color:black;"><?php echo $fetch['status']?></a></td>
+              
+             
               <td>
               <center>
 							<?php
+
 								if($fetch['status'] != "Done"){
 									echo 
 									'<a href="update_task.php?id='.$fetch['id'].'" ><i class="fa-solid fa-pen-to-square edited" title="edit"></i></a>';

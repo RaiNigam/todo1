@@ -5,8 +5,8 @@ if(isset($_POST['submit'])) {
    
     $date = $_POST['date'];
 
-    $insertQuery = "INSERT INTO tbl_task(task,date) 
-    VALUES ('$task','$date')";
+    $insertQuery = "INSERT INTO tbl_task(task,date,status) 
+    VALUES ('$task','$date','Undone')";
     $result = $conn->query($insertQuery);
 
     if($conn->insert_id){
