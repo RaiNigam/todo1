@@ -21,7 +21,7 @@ include('db.php');
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" 
            rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">   
+    <link rel="stylesheet" href="css/style.css">   
      
     <title>Todo</title>
 </head>
@@ -89,13 +89,13 @@ include('db.php');
               while($fetch = $query->fetch_array()){
             ?>
             <tr>
-              <td><?php echo $count++?></td>
-              <td><?php echo $fetch['task']?></td>
-              <td><?php echo $fetch['date']?></td>
+              <td class="data"><?php echo $count++?></td>
+              <td class="data task"><?php echo $fetch['task']?></td>
+              <td class="data date"><?php echo $fetch['date']?></td>
               <td><?php if ($fetch['status']==1){
-                echo '<p><a class="statusDone" href="status.php?id='.$fetch['id'].'&status=0">Done</a></p>';
+                echo '<a class="statusDone" href="status.php?id='.$fetch['id'].'&status=0">Done</a>';
               }else{
-                echo '<p><a class="statusUndone" href="status.php?id='.$fetch['id'].'&status=1">Undone</a></p>';
+                echo '<a class="statusUndone" href="status.php?id='.$fetch['id'].'&status=1">Undone</a>';
               }
               ?></td>
               

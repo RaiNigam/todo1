@@ -37,7 +37,7 @@
     .content{
     /* margin-left:70px; */
     /* margin-right:-100px; */
-    background-color: #ffcc66;
+    background-color:#ffcc66;
     height:1400px;
     /* text-align: center; */
     /* color:white; */
@@ -86,14 +86,27 @@
     border: 1px solid black;
 }
 .statusDone{
-    background-color: greenyellow;
+    background-color: rgb(8, 245, 4);
+    /* padding:10px; */
+    text-decoration: none;
+    /* overflow-y: hidden; */
     padding:10px;
-    text-decoration: none;overflow-y: hidden;
-
-    height:fit-content;
+    margin: auto;
+    font-weight: bolder;
+    color:#1e1e1e;
+    
+}
+.data{
+    font-weight: 900;
 }
 .statusUndone{
     padding:10px;
     background-color: red;
+    margin:auto;
+    color:black;
+    font-weight: bolder;
 }
-
+.status{
+    /* padding:30px; */
+    background-color: aqua;
+}
