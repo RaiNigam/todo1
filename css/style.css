@@ -85,3 +85,15 @@
     padding: 185px 150px;
     border: 1px solid black;
 }
+.statusDone{
+    background-color: greenyellow;
+    padding:10px;
+    text-decoration: none;overflow-y: hidden;
+
+    height:fit-content;
+}
+.statusUndone{
+    padding:10px;
+    background-color: red;
+}
+

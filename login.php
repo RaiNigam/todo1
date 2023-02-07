@@ -2,7 +2,7 @@
 session_start();
 include("db.php");
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password =$_POST['password'];
 
@@ -18,6 +18,10 @@ if (isset($_POST['submit'])) {
         header('Location:login.php');
     }
 }
+
+
+	
+ 
 ?>
 
 <div class="container">
@@ -30,7 +34,7 @@ if (isset($_POST['submit'])) {
                 <label>Password</label>
                 <input type="password" name="password" required/>
 
-                <input type="submit" name="submit" />
+                <input type="submit" name="login" value="login" />
             </form>
         </div>
     </div>

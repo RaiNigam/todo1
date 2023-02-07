@@ -1,5 +1,16 @@
 <?php
 include('db.php');
+
+
+session_start();
+
+ini_set('display_errors', 1);
+
+if(!isset($_SESSION['email'])){
+    header('Location:login.php');
+}
+
+
 $id = $_GET['id'];
 if (isset($_POST['submit'])) {
     $task = $_POST['task'];

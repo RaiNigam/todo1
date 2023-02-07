@@ -21,7 +21,7 @@ include('db.php');
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" 
            rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styling.css">   
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">   
      
     <title>Todo</title>
 </head>
@@ -84,7 +84,7 @@ include('db.php');
       <tbody>
       <?php
             	require 'db.php';
-              $query = $conn->query("SELECT * FROM `tbl_task` ORDER BY `id` ASC");
+              $query = $conn->query("SELECT * FROM `tbl_task`");
               $count = 1;
               while($fetch = $query->fetch_array()){
             ?>
@@ -92,20 +92,25 @@ include('db.php');
               <td><?php echo $count++?></td>
               <td><?php echo $fetch['task']?></td>
               <td><?php echo $fetch['date']?></td>
-              <td> <a href="" style="padding:10px;cursor:pointer;background-color:green;text-decoration:none;color:black;"><?php echo $fetch['status']?></a></td>
+              <td><?php if ($fetch['status']==1){
+                echo '<p><a class="statusDone" href="status.php?id='.$fetch['id'].'&status=0">Done</a></p>';
+              }else{
+                echo '<p><a class="statusUndone" href="status.php?id='.$fetch['id'].'&status=1">Undone</a></p>';
+              }
+              ?></td>
               
              
               <td>
-              <center>
+              
 							<?php
 
-								if($fetch['status'] != "Done"){
+								if($fetch['status'] != 1){
 									echo 
 									'<a href="update_task.php?id='.$fetch['id'].'" ><i class="fa-solid fa-pen-to-square edited" title="edit"></i></a>';
 								}
 							?>
 							 <a href="delete.php?id=<?php echo $fetch['id']?>" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash-can deleted" title="delete"></i></a>
-						</center>
+						
 					</td>
 				</tr>
 				<?php
@@ -119,5 +124,7 @@ include('db.php');
 
 </body>
 
-<!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+
+
+
 </html>
