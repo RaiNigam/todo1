@@ -5,8 +5,9 @@ include("db.php");
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password =$_POST['password'];
+    $_SESSION['username'] = $username;
 
-    $sql = "SELECT id, email, password FROM tbl_user WHERE email = '$email' AND password = '$password'";
+    $sql = "SELECT id, email,username, password FROM tbl_user WHERE email = '$email' AND password = '$password'";
     $result = $conn->query($sql);
 
     $row = $result->fetch_assoc();

@@ -35,16 +35,20 @@
     color:black;
 }
     .content{
-    /* margin-left:70px; */
-    /* margin-right:-100px; */
-    background-color:#ffcc66;
+    margin-left:70px; 
+    margin-right:-100px; 
+    /* background-color:#ffcc66; */
     height:1400px;
-    /* text-align: center; */
-    /* color:white; */
+    text-align: center;
+    color:white;
     padding-top:100px;
 }
 .welcomeMsg{
     text-align: center;
+    position:relative;
+    top:0;
+    left:0;
+
 }
 .appTitle{
     text-decoration:underline ;
@@ -55,7 +59,7 @@
     border:5px solid black;
 }
 .inputDate{
-    /* width:200px; */
+     width:200px;
 }
 .activity{
     width:1000px;

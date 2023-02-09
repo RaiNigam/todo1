@@ -7,6 +7,7 @@ if(!isset($_SESSION['email'])){
     header('Location:login.php');
 }
 
+
 include('db.php');
 ?>
 <!DOCTYPE html>
@@ -49,12 +50,13 @@ include('db.php');
       </nav>
       <div class="container-fluid content">
         <h1 class="welcomeMsg">Hi <?php
-        require 'db.php';
-          
-        $query = $conn->query("SELECT username FROM `tbl_user`");
-        // $count = 1;
-        while($fetch = $query->fetch_array()){
-        echo $fetch['username'];}?>, Welcome to our site.</h1>
+				include'db.php';
+ 
+ 
+				$query = mysqli_query($conn, "SELECT * FROM `tbl_user` WHERE `email`='$_SESSION[email]'") or die(mysqli_error());
+				$fetch = mysqli_fetch_array($query);
+				echo "<span class='text-success'>".$fetch['username']."</span>";
+			?>, Welcome to our site.</h1>
        
         <div class="container tasks">
             <h2 class="appTitle">TODO Application</h2>
