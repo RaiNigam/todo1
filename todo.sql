@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2023 at 01:55 AM
+-- Generation Time: Feb 09, 2023 at 01:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -31,7 +31,7 @@ CREATE TABLE `tbl_task` (
   `id` int(11) NOT NULL,
   `task` text NOT NULL,
   `date` date NOT NULL,
-  `status` varchar(255) NOT NULL,
+  `status` int(1) NOT NULL,
   `updated_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -40,8 +40,7 @@ CREATE TABLE `tbl_task` (
 --
 
 INSERT INTO `tbl_task` (`id`, `task`, `date`, `status`, `updated_date`) VALUES
-(2, 'Take Class of Web Development', '2023-02-13', 'Done', '0000-00-00'),
-(5, 'Take Class  fdafsd', '2023-02-13', 'Undone', '0000-00-00');
+(8, 'Take Class of Web Development', '2023-02-13', 1, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -62,7 +61,8 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id`, `username`, `email`, `password`) VALUES
 (1, 'Nigam Rai', 'nigam@gmail.com', 'nigam'),
-(3, 'Chhiring Sherpa', 'chiring@gmail.com', 'chiring');
+(3, 'Chhiring Sherpa', 'chiring@gmail.com', 'chiring'),
+(5, 'Nigam Rai', 'nigam123@gmail.com', '6d7e8664505010dc18f6d3c3f31b585a');
 
 --
 -- Indexes for dumped tables
@@ -88,13 +88,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_task`
 --
 ALTER TABLE `tbl_task`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
