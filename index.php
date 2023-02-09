@@ -19,10 +19,9 @@ include('db.php');
     <script src="https://kit.fontawesome.com/0c9a88a792.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" 
-           rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">   
+    <link rel="stylesheet" href="./css/style.css">   
      
     <title>Todo</title>
 </head>
@@ -50,9 +49,6 @@ include('db.php');
       </nav>
       <div class="container-fluid content">
         <h1 class="welcomeMsg">Hi <?php
-				include'db.php';
- 
- 
 				$query = mysqli_query($conn, "SELECT * FROM `tbl_user` WHERE `email`='$_SESSION[email]'") or die(mysqli_error());
 				$fetch = mysqli_fetch_array($query);
 				echo "<span class='text-success'>".$fetch['username']."</span>";
