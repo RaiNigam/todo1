@@ -6,10 +6,35 @@ ini_set('display_errors', 1);
 if(!isset($_SESSION['email'])){
     header('Location:login.php');
 }
-
-
 include('db.php');
 ?>
+<?php
+include('db.php');
+
+$user = $_SESSION['email'];
+$query = mysqli_query($conn,"select * from tbl_user where email = '$user'");
+$row =mysqli_fetch_array($query);
+$id = $row['id'];
+
+if(isset($_POST['submit'])) {
+    $task = $_POST['task'];
+   
+    $date = $_POST['date'];
+
+    $insertQuery = "INSERT INTO tbl_task(task,date,status,user_id) 
+    VALUES ('$task','$date','','$id')";
+    $result = $conn->query($insertQuery);
+
+    if($conn->insert_id){
+       
+    }else{
+        echo $conn->error;
+    }  
+    header('location:index.php');
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +45,7 @@ include('db.php');
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">   
      
     <title>Todo</title>
@@ -57,7 +82,7 @@ include('db.php');
         <div class="container tasks">
             <h2 class="appTitle">TODO Application</h2>
             <table class="table table-bordered table-hover">
-        <form action="create.php" method="post">
+        <form action="#" method="post">
           <div class="d-flex">
             <div class="p-2 text-lg-center"><label for="exampleInputEmail1" >Tasks</label>
               <input type="text" class="form-control activity" name="task" placeholder="Enter Your Task Here" 
@@ -82,7 +107,11 @@ include('db.php');
       <tbody>
       <?php
             	require 'db.php';
-              $query = $conn->query("SELECT * FROM `tbl_task`");
+              $user = $_SESSION['email'];
+             $query = mysqli_query($conn,"SELECT * from tbl_user where email = '$user'");
+            $row =mysqli_fetch_array($query);
+            $id = $row['id'];
+              $query = $conn->query("SELECT * FROM `tbl_task` where user_id ='$id'");
               $count = 1;
               while($fetch = $query->fetch_array()){
             ?>
@@ -117,8 +146,10 @@ include('db.php');
       </tbody>
               </table>
         </div>
+        
 
       </div>
+     
 
 </body>
 
