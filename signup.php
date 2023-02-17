@@ -1,26 +1,20 @@
 <?php
 include('db.php');
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Retrieve form data
-    $name = $_POST['username'];
+if(isset($_POST['submit'])) {
+    $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    $submit = $_POST['submit'];
+    $password=$_POST['password'];
 
-    // Insert data into database
-    $sql = "INSERT INTO tbl_user (name, email, password, submit) VALUES ($name, $email, $password, $submit)";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "sss", $name, $email, $password);
-    mysqli_stmt_execute($stmt);
-
-    // Check if insertion was successful
-    if (mysqli_affected_rows($conn) > 0) {
-        echo "User created successfully.";
-        header('Location:login.php');
-    } 
-     else {
-        echo "Error: " . mysqli_error($conn);
-    }
+    $insert = "INSERT INTO tbl_user(username,email,password) 
+    VALUES ('$username','$email','$password')";
+    $result = $conn->query($insert);
+    if($conn->insert_id){
+        header('location:login.php');
+    }else{
+        echo $conn->error;
+        header('location:signup.php');
+    }  
+    
 }
 ?>
 
@@ -39,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <main class="container">
         <div class="container">
-            <form action="" method="post" class="user-signup">
+            <form action="#" method="post" class="user-signup">
                 <header class="row head">
                     <div class="col">
                         <h1 class="sign-up">Sign Up</h1>
