@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2023 at 01:05 PM
+-- Generation Time: Feb 17, 2023 at 12:09 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -32,15 +32,21 @@ CREATE TABLE `tbl_task` (
   `task` text NOT NULL,
   `date` date NOT NULL,
   `status` int(1) NOT NULL,
-  `updated_date` date NOT NULL
+  `updated_date` date NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_task`
 --
 
-INSERT INTO `tbl_task` (`id`, `task`, `date`, `status`, `updated_date`) VALUES
-(8, 'Take Class of Web Development', '2023-02-13', 1, '0000-00-00');
+INSERT INTO `tbl_task` (`id`, `task`, `date`, `status`, `updated_date`, `user_id`) VALUES
+(21, 'Take Class  fdafsd', '2023-02-15', 0, '0000-00-00', 3),
+(22, 'naresh', '2023-02-14', 1, '0000-00-00', 1),
+(23, 'Take Class of Web Development', '2023-02-08', 1, '0000-00-00', 1),
+(24, 'Nigam', '2023-02-28', 1, '0000-00-00', 1),
+(25, 'Take Class of web development', '2023-02-14', 0, '0000-00-00', 3),
+(27, 'This is for chiring', '2023-02-20', 0, '0000-00-00', 3);
 
 -- --------------------------------------------------------
 
@@ -88,7 +94,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_task`
 --
 ALTER TABLE `tbl_task`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

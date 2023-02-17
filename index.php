@@ -84,11 +84,11 @@ if(isset($_POST['submit'])) {
             <table class="table table-bordered table-hover">
         <form action="#" method="post">
           <div class="d-flex">
-            <div class="p-2 text-lg-center"><label for="exampleInputEmail1" >Tasks</label>
+            <div class="p-2 text-lg-center"><label for="exampleInputEmail1" class="tasksLabel" >Tasks</label>
               <input type="text" class="form-control activity" name="task" placeholder="Enter Your Task Here" 
                required></div>
-            <div class="p-2 text-lg-center"><label for="#">Date</label>
-              <input type="date" class="form-control inputDate" name="date" placeholder="Date" required></div>
+            <div class="p-2 text-lg-center"><label for="#" class="dateLabel">Date</label>
+              <input type="date" class="form-control inputDate" name="date" placeholder="Date" class="date" required></div>
             <div class="p-2 align-self-end"><button type="submit" name="submit" class="btn btn-primary p-2">Add</button>
             </div>
           </div>
