@@ -22,25 +22,10 @@
                 </header>
                 <main class="row row-main">
                     <div class="col col-main">
-                        <input class="firstName" type="text" placeholder="First name" name="First name" title="What's your first name?"/>
-                        <input class="lastName" type="text" placeholder="Last name" name="last name" title="what's your last name?"/><br/>
+                        <input class="user-name" type="text" placeholder="Username" name="username" title="What's your username?"/><br/>
                         <input class="Email" type="email" placeholder="Enter your Email" name="email" title="Enter your email ID"/><br/>
                         <input class="Password" type="password" placeholder="New password" name="password" title="Password must be 8 character long"/><br/>
-                        <label class="b-day" for="birthday">Birthday <i class="fa-solid fa-circle-question"></i></label><br/>
-                        <input class="birthday" type="date" id="birthday" name="birthday"/><br/>
-                        <label class="Gender" for="">Gender <i class="fa-solid fa-circle-question"></i></label><br/>
-                        <span class="male">
-                            <label class="M" for="male">Male</label>
-                            <input type="radio" id="male" name="gender" value="male"/>
-                        </span>
-                        <span class="female">
-                            <label class="F" for="female">Female</label>
-                            <input type="radio" id="female" name="gender" value="female"/>
-                        </span>
-                        <span class="others">
-                            <label class="O" for="others">Others</label>
-                            <input type="radio" id="others" name="gender" value="others"/>
-                        </span>
+                        <input class="Password" type="confirm-password" placeholder="Confirm password" name="confirm-password" title="Password must be 8 character long"/><br/>
                     </div>
                 </main>
                 <footer class="row signup-btn">
