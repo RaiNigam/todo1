@@ -130,6 +130,11 @@
     margin-top: 20px;
     margin-left: 125px;
     font-size: 17px;
+    cursor: pointer;
+}
+
+.forgot a{
+    color: #1e1e1e;
 }
 
 /* User sign up */
@@ -163,22 +168,12 @@
     padding-top: 15px;
 }
 
-.firstName{
+.user-name{
     padding-left: 10px;
     font-size: 18px;
     height: 40px;
-    width: 230px;
+    width: 476px;
     margin-right: 10px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    background-color: #f5f6f7;
-}
-
-.lastName{
-    padding-left: 10px;
-    font-size: 18px;
-    height: 40px;
-    width: 230px;
     border: 1px solid grey;
     border-radius: 5px;
     background-color: #f5f6f7;
@@ -201,6 +196,17 @@
 }
 
 .Password{
+    padding-left: 10px;
+    font-size: 18px;
+    height: 40px;
+    width: 476px;
+    margin-top: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: #f5f6f7;
+}
+
+.confirm-password{
     padding-left: 10px;
     font-size: 18px;
     height: 40px;
