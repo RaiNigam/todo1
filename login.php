@@ -35,7 +35,7 @@ if (isset($_POST['login'])) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9f0469db40.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/loginout.css">
+    <link rel="stylesheet" href="./css/loginout.css">
     <title>Todo - log in or sign up</title>
 </head>
 <body>
@@ -60,7 +60,7 @@ if (isset($_POST['login'])) {
                             <div class="row username">
                                 <div class="col">
                                         <label for="username" class="email">E-mail*</label><br/>
-                                        <input type="email" id="useremail" name="email" class="input-email" title="Enter your e-mail"/>
+                                        <input type="email" id="useremail" name="email" class="input-email" title="Enter your e-mail" required/>
                                 </div>
                             </div>
                             <div class="row password">
@@ -76,7 +76,7 @@ if (isset($_POST['login'])) {
                             </div>
                             <div class="row login-btn">
                                 <div class="col">
-                                    <button type="submit" class="log-in">Login</button>
+                                    <button type="submit" name="login" class="log-in">Login</button>
                                     <p class="forgot"><u>Forgot your password?</u></p>
                                 </div>
                             </div>
