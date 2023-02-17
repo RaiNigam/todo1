@@ -130,6 +130,11 @@
     margin-top: 20px;
     margin-left: 125px;
     font-size: 17px;
+    cursor: pointer;
+}
+
+.forgot a{
+    color: #1e1e1e;
 }
 
 /* User sign up */

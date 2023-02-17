@@ -69,15 +69,10 @@ if (isset($_POST['login'])) {
                                     <input type="password" id="password" name="password" class="input-pass" min="8" title="Enter your password"/>
                                 </div>
                             </div>
-                            <div class="row check-box">
-                                <div class="col">
-                                    <input type="checkbox" class="square-box"/><span class="keep-sign">keep me signed in</span>
-                                </div>
-                            </div>
                             <div class="row login-btn">
                                 <div class="col">
                                     <button type="submit" name="login" class="log-in">Login</button>
-                                    <p class="forgot"><u>Forgot your password?</u></p>
+                                    <p class="forgot"><u><a href="#">Forgot your password?</a></u></p>
                                 </div>
                             </div>
                         </form>
