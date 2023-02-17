@@ -10,7 +10,6 @@ include('db.php');
 ?>
 <?php
 include('db.php');
-
 $user = $_SESSION['email'];
 $query = mysqli_query($conn,"select * from tbl_user where email = '$user'");
 $row =mysqli_fetch_array($query);
