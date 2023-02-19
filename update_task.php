@@ -51,20 +51,21 @@ $row = $result->fetch_assoc();
 <div class="box1">
     
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    
+    <h1 class="h2">Edit Page</h1>
+</div>
+</div>
 
-  <h1 class="h2">Edit Page</h1>
-</div>
-</div>
+
 <div class="box2">
 <form method="post" action="">
     <div class="form-group ">
-    
-       <th> <label>Task/Activity</label>
+
+    <label>Task/Activity</label>
 
         <input type="text" class="form-control how " required name="task" value="<?php echo $row['task']; ?>"/>
     </div>
 </div>
+
 <div class="box3">
     <div class="form-group">
         <label>date</label>
