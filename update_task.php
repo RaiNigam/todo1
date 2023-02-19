@@ -62,13 +62,13 @@ $row = $result->fetch_assoc();
     
        <th> <label>Task/Activity</label>
 
-        <input type="text" class="form-control how " table="hilight" required name="task" value="<?php echo $row['task']; ?>"/>
+        <input type="text" class="form-control how " required name="task" value="<?php echo $row['task']; ?>"/>
     </div>
 </div>
 <div class="box3">
     <div class="form-group">
         <label>date</label>
-        <input class="form-control now "type="date"table="hilight" required name="date" value="<?php echo $row['date']; ?>"/>
+        <input class="form-control now "type="daterequired name="date" value="<?php echo $row['date']; ?>"/>
     </div>
 </div>
 
