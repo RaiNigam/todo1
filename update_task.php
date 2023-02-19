@@ -1,4 +1,6 @@
 <?php
+
+
 include('db.php');
 
 
@@ -35,25 +37,46 @@ $sql = "SELECT id, task, date FROM tbl_task WHERE id = $id";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/update.css">
+</head>
+<body>
+   
+<div class="box1">
+    
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Edit Page</h1>
+    
+
+  <h1 class="h2">Edit Page</h1>
 </div>
-
+</div>
+<div class="box2">
 <form method="post" action="">
-    <div class="form-group">
-        <label>Task/Activity</label>
-        <input type="text" class="form-control" required name="task" value="<?php echo $row['task']; ?>"/>
-    </div>
+    <div class="form-group ">
+    
+       <th> <label>Task/Activity</label>
 
+        <input type="text" class="form-control how " table="hilight" required name="task" value="<?php echo $row['task']; ?>"/>
+    </div>
+</div>
+<div class="box3">
     <div class="form-group">
         <label>date</label>
-        <input class="form-control"type="date" required name="date" value="<?php echo $row['date']; ?>"/>
+        <input class="form-control now "type="date"table="hilight" required name="date" value="<?php echo $row['date']; ?>"/>
     </div>
+</div>
 
-  
+  <div class="box4">
 
-    <div class="form-group">
-        <input type="submit" name="submit" value="Save" class="btn btn-primary"/>
-    </div>
+    <div class="form-group ">
+        <input type="submit"  class="you" name="submit" value="Save" class="btn btn-primary"/>
+    </div></box4>
 </form>
+</body>
+</html>
