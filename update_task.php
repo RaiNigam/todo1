@@ -66,8 +66,9 @@ $row = $result->fetch_assoc();
     </div>
 </div>
 
+
 <div class="box3">
-    
+
     <div class="form-group">
         <label>date</label>
         <input class="form-control now "type="daterequired name="date value="<?php echo $row['date']; ?>"/>
