@@ -104,7 +104,10 @@ if(isset($_POST['submit'])) {
           <th class="col-1">Status</th>
           <th class="col-1" style="text-align:center">Action</th>
         </tr>
+      
       </thead>
+      <tr>
+      </tr>
       <tbody>
       <?php
             	require 'db.php';
@@ -138,21 +141,29 @@ if(isset($_POST['submit'])) {
 								}
 							?>
 							 <a href="delete.php?id=<?php echo $fetch['id']?>" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash-can deleted" title="delete"></i></a>
-						
+               
 					</td>
-				</tr>
+
+          
 				<?php
 					}
 				?>
+       
       </tbody>
               </table>
+              <div class="home">
+<a href="./deleteALL.php"><button> Delete All</button></a>
+        </div>
         </div>
         
 
       </div>
-     
+      <tr>
+
 
 </body>
+
+
 
 
 
