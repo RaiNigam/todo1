@@ -1,6 +1,4 @@
 <?php
-
-
 include('db.php');
 
 

@@ -41,6 +41,9 @@ if(isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/0c9a88a792.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
+           <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />   -->
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -77,7 +80,7 @@ if(isset($_POST['submit'])) {
 				echo "<span class='text-success'>".$fetch['username']."</span>";
 			?>, Welcome to our site.</h1>
        
-        <div class="container tasks">
+        <div class="container tasks" id="employee_table">
             <h2 class="appTitle">TODO Application</h2>
             <table class="table table-bordered table-hover">
         <form action="#" method="post">
@@ -95,14 +98,11 @@ if(isset($_POST['submit'])) {
                
       <thead>
         <tr class="table-info table_header">
-          <th class="col-1">S.No.</th>
-          <th class="col-7"><div class="d-flex align-items-center">
-          <p>Task/Activity</p> <div><i class="fa-solid fa-arrow-down float-right"></i><i class="fa-solid fa-arrow-up"></i></div>
-          </th>
-          <th class="col-2 date"><div class="d-flex align-items-center"><p>Date</p><div><i class="fa-solid fa-arrow-down float-right"></i><i class="fa-solid fa-arrow-up"></i></div>
-          </th>
-          <th class="col-1">Status</th>
-          <th class="col-1" style="text-align:center">Action</th>
+        <th><a class="column_sort" id="id" data-order="desc" href="#">S.No.</a></th>  
+                               <th><a class="column_sort" id="task" data-order="desc" href="#">Tasks</a></th>  
+                               <th><a class="column_sort" id="date" data-order="desc" href="#">Date</a></th>  
+                               <th><a class="column_sort" id="status" data-order="desc" href="#">Status</a></th>  
+                               <th><a class="column_sort" data-order="desc" href="#">Action</a></th> 
         </tr>
       
       </thead>
@@ -162,7 +162,35 @@ if(isset($_POST['submit'])) {
 
 
 </body>
-
+<script>  
+ $(document).ready(function(){  
+      $(document).on('click', '.column_sort', function(){  
+           let column_name = $(this).attr("id");  
+           let order = $(this).data("order");  
+           let arrow = '';  
+           //glyphicon glyphicon-arrow-up  
+           //glyphicon glyphicon-arrow-down  
+           if(order == 'desc')  
+           {  
+                arrow = '&nbsp;<i class="fa-solid fa-down-long"></i>';  
+           }  
+           else  
+           {  
+                arrow = '&nbsp;<i class="fa-solid fa-up-long"></i>';  
+           }  
+           $.ajax({  
+                url:"./sort.php",  
+                method:"POST",  
+                data:{column_name:column_name, order:order},  
+                success:function(data)  
+                {  
+                     $('#employee_table').html(data);  
+                     $('#'+column_name+'').append(arrow);  
+                }  
+           })  
+      });  
+ });  
+ </script>  
 
 
 
