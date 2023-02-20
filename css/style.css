@@ -141,3 +141,29 @@ body{
     /* padding:30px; */
     background-color: aqua;
 }
+.home{
+    
+   margin-left: 1000px;
+   border-radius: 7px;
+   text-align: center;
+   
+   justify-content: center;
+   padding-top: 9px;
+   
+   color: #ffff;
+
+}
+.home button{
+   color: white;
+   background-color:#007bff;
+   height: 30px;
+   width:100px;
+   cursor: pointer;
+  border-radius: 7px;
+  font-weight: bold;
+}
+.home button:hover{
+    background-color: red;
+    color: black;
+
+}
