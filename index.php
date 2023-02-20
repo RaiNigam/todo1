@@ -66,8 +66,7 @@ if(isset($_POST['submit'])) {
             </li>
           
           </ul>
-            <a href="./logout.php"><button class="btn logOutBtn btn-outline-success my-2 my-sm-0" 
-             >Logout</button></a>
+            <a href="./logout.php"><button class="btn logOutBtn btn-outline-success my-2 my-sm-0">Logout</button></a>
           
         </div>
       </nav>
