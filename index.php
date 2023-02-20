@@ -62,7 +62,7 @@ if(isset($_POST['submit'])) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#" id="home">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#" id="home">Home <span class="sr-only"></span></a>
             </li>
           
           </ul>
@@ -97,10 +97,13 @@ if(isset($_POST['submit'])) {
       <thead>
         <tr class="table-info table_header">
           <th class="col-1">S.No.</th>
-          <th class="col-7">Task/Activity</th>
-          <th class="col-2 date">Date</th>
+          <th class="col-7"><div class="d-flex align-items-center">
+          <p>Task/Activity</p> <div><i class="fa-solid fa-arrow-down float-right"></i><i class="fa-solid fa-arrow-up"></i></div>
+          </th>
+          <th class="col-2 date"><div class="d-flex align-items-center"><p>Date</p><div><i class="fa-solid fa-arrow-down float-right"></i><i class="fa-solid fa-arrow-up"></i></div>
+          </th>
           <th class="col-1">Status</th>
-          <th class="col-1">Action</th>
+          <th class="col-1" style="text-align:center">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -126,7 +129,7 @@ if(isset($_POST['submit'])) {
               ?></td>
               
              
-              <td>
+              <td class="action">
               
 							<?php
 
