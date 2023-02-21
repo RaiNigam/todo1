@@ -90,7 +90,7 @@ if(isset($_POST['submit'])) {
                required></div>
             <div class="p-2 text-lg-center"><label for="#" class="dateLabel">Date</label>
               <input type="date" class="form-control inputDate" name="date" placeholder="Date" class="date" required></div>
-            <div class="p-2 align-self-end"><button type="submit" name="submit" class="btn btn-primary p-2">Add</button>
+            <div class="p-2 align-self-end"><button type="submit" name="add" class="btn btn-primary p-2">Add</button>
             </div>
           </div>
       </form>
@@ -107,6 +107,11 @@ if(isset($_POST['submit'])) {
         </tr>
       
       </thead>
+      <?php
+      }
+      ?>
+               
+      
       <tr>
       </tr>
       <tbody>
