@@ -90,32 +90,45 @@ if(isset($_POST['submit'])) {
                required></div>
             <div class="p-2 text-lg-center"><label for="#" class="dateLabel">Date</label>
               <input type="date" class="form-control inputDate" name="date" placeholder="Date" class="date" required></div>
-            <div class="p-2 align-self-end"><button type="submit" name="submit" class="btn btn-primary p-2">Add</button>
+            <div class="p-2 align-self-end"><button type="submit" name="add" class="btn btn-primary p-2">Add</button>
             </div>
           </div>
       </form>
       
-               
-      <thead>
+        <thead>
         <tr class="table-info table_header">
-        <th><a class="column_sort" id="id" data-order="desc" href="#">S.No.</a></th>  
-                               <th><a class="column_sort" id="task" data-order="desc" href="#">Tasks</a></th>  
-                               <th><a class="column_sort" id="date" data-order="desc" href="#">Date</a></th>  
-                               <th><a class="column_sort" id="status" data-order="desc" href="#">Status</a></th>  
-                               <th><a class="column_sort" data-order="desc" href="#">Action</a></th> 
+        <th><a class="col-1" href="?sort=id">S.No.</a></th>
+        <th><a class="col-7"href="?sort=task">Task/Activity</a></th>
+        <th><a class="col-2 date" href="?sort=date">Date</a></th>
+        <th><a class="col-1" href="?sort=status">Status</a></th>
+        <th><a class="col-1" href="#">Action</a></th>
+       
+        </tr>
         </tr>
       
       </thead>
+      <?php
+      }
+      ?>
+               
+      
       <tr>
       </tr>
       <tbody>
       <?php
+     
             	require 'db.php';
+              if (isset($_GET['sort'])) {
+                $column = trim(strip_tags($_GET['sort']));
+                $orderby = "ORDER BY $column";
+               } else {
+                 $orderby = "";
+               }
               $user = $_SESSION['email'];
              $query = mysqli_query($conn,"SELECT * from tbl_user where email = '$user'");
             $row =mysqli_fetch_array($query);
             $id = $row['id'];
-              $query = $conn->query("SELECT * FROM `tbl_task` where user_id ='$id'");
+              $query = $conn->query("SELECT * FROM `tbl_task` where user_id='$id' $orderby");
               $count = 1;
               while($fetch = $query->fetch_array()){
             ?>
@@ -152,7 +165,7 @@ if(isset($_POST['submit'])) {
       </tbody>
               </table>
               <div class="home">
-         <a href="./deleteALL.php"><button> Delete All</button></a>
+<a href="./deleteALL.php"><button> Delete All</button></a>
         </div>
         </div>
         
