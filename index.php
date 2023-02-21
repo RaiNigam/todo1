@@ -152,7 +152,7 @@ if(isset($_POST['submit'])) {
       </tbody>
               </table>
               <div class="home">
-<a href="./deleteALL.php"><button> Delete All</button></a>
+         <a href="./deleteALL.php"><button> Delete All</button></a>
         </div>
         </div>
         
