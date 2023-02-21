@@ -107,9 +107,7 @@ if(isset($_POST['submit'])) {
         </tr>
       
       </thead>
-      <?php
-      }
-      ?>
+     
                
       
       <tr>
